@@ -29,7 +29,8 @@ def contains_numbers(check_obj):
         assert any(char.isdigit() for char in check_obj._val)
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} does not contain numbers'.format(check_obj._val)) from e
+        raise CheckError(
+            '{} does not contain numbers'.format(check_obj._val)) from e
 
 
 def not_contains_numbers(check_obj):
@@ -38,7 +39,8 @@ def not_contains_numbers(check_obj):
         assert not any(char.isdigit() for char in check_obj._val)
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} does not contain numbers'.format(check_obj._val)) from e
+        raise CheckError(
+            '{} does not contain numbers'.format(check_obj._val)) from e
 
 
 def contains_numbers_only(check_obj):
@@ -47,7 +49,8 @@ def contains_numbers_only(check_obj):
         assert check_obj._val.isdigit()
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} also contains numbers'.format(check_obj._val)) from e
+        raise CheckError(
+            '{} also contains numbers'.format(check_obj._val)) from e
 
 
 def contains_chars(check_obj):
@@ -56,7 +59,8 @@ def contains_chars(check_obj):
         assert bool(re.search('[a-zA-Z]', check_obj._val))
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} does not contain chars'.format(check_obj._val)) from e
+        raise CheckError(
+            '{} does not contain chars'.format(check_obj._val)) from e
 
 
 def not_contains_chars(check_obj):
@@ -74,7 +78,8 @@ def contains_chars_only(check_obj):
         assert check_obj._val.isalpha()
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} also contains alphanumeric chars'.format(check_obj._val)) from e
+        raise CheckError(
+            '{} also contains alphanumeric chars'.format(check_obj._val)) from e
 
 
 def contains_spaces(check_obj):
@@ -83,7 +88,8 @@ def contains_spaces(check_obj):
         assert ' ' in check_obj._val
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} does not contain whitespaces'.format(check_obj._val)) from e
+        raise CheckError(
+            '{} does not contain whitespaces'.format(check_obj._val)) from e
 
 
 def not_contains_spaces(check_obj):
@@ -92,7 +98,8 @@ def not_contains_spaces(check_obj):
         assert not ' ' in check_obj._val
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} contains whitespaces'.format(check_obj._val)) from e
+        raise CheckError(
+            '{} contains whitespaces'.format(check_obj._val)) from e
 
 
 def contains_char(check_obj, _char):
@@ -104,6 +111,7 @@ def contains_char(check_obj, _char):
         raise CheckError('{} does not contain char: {}'.format(check_obj._val,
                                                                _char)) from e
 
+
 def same_as(check_obj, __char):
     check_obj.is_string()
     try:
@@ -111,16 +119,18 @@ def same_as(check_obj, __char):
         return check_obj
     except AssertionError as e:
         raise CheckError('{} does not match : {}'.format(check_obj._val,
-                                                               _char)) from e
+                                                         _char)) from e
 
-def not_same_as():
+
+def not_same_as(check_obj, __char):
     check_obj.is_string()
     try:
         assert __char != check_obj._val
         return check_obj
     except AssertionError as e:
         raise CheckError('{} is same as : {}'.format(check_obj._val,
-                                                               _char)) from e
+                                                     _char)) from e
+
 
 def not_contains_char(check_obj, _char):
     check_obj.is_string()
@@ -128,7 +138,8 @@ def not_contains_char(check_obj, _char):
         assert not _char in check_obj._val
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} contains char: {}'.format(check_obj._val, _char)) from e
+        raise CheckError('{} contains char: {}'.format(
+            check_obj._val, _char)) from e
 
 
 def is_shorter_than(check_obj, n_chars):
@@ -137,7 +148,8 @@ def is_shorter_than(check_obj, n_chars):
         assert len(check_obj._val) < n_chars
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} is longer than {}'.format(check_obj._val, n_chars)) from e
+        raise CheckError('{} is longer than {}'.format(
+            check_obj._val, n_chars)) from e
 
 
 def is_longer_than(check_obj, n_chars):
@@ -146,7 +158,8 @@ def is_longer_than(check_obj, n_chars):
         assert len(check_obj._val) > n_chars
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} is shorter than {}'.format(check_obj._val, n_chars)) from e
+        raise CheckError('{} is shorter than {}'.format(
+            check_obj._val, n_chars)) from e
 
 
 def has_length(check_obj, n_items):
@@ -155,7 +168,8 @@ def has_length(check_obj, n_items):
         assert len(check_obj._val) == n_items
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} is not long {}'.format(check_obj._val, n_items)) from e
+        raise CheckError('{} is not long {}'.format(
+            check_obj._val, n_items)) from e
 
 
 def has_not_length(check_obj, n_items):
@@ -164,7 +178,8 @@ def has_not_length(check_obj, n_items):
         assert len(check_obj._val) != n_items
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} is long {}'.format(check_obj._val, n_items)) from e
+        raise CheckError('{} is long {}'.format(
+            check_obj._val, n_items)) from e
 
 
 def is_lowercase(check_obj):
@@ -238,7 +253,8 @@ def is_not_snakecase(check_obj):
 def is_camelcase(check_obj):
     check_obj.is_string()
     try:
-        assert (check_obj._val != check_obj._val.lower() and check_obj._val != check_obj._val.upper())
+        assert (check_obj._val != check_obj._val.lower()
+                and check_obj._val != check_obj._val.upper())
         return check_obj
     except AssertionError as e:
         raise CheckError('{} is not camelcase'.format(check_obj._val)) from e
@@ -247,7 +263,8 @@ def is_camelcase(check_obj):
 def is_not_camelcase(check_obj):
     check_obj.is_string()
     try:
-        assert not (check_obj._val != check_obj._val.lower() and check_obj._val != check_obj._val.upper())
+        assert not (check_obj._val != check_obj._val.lower()
+                    and check_obj._val != check_obj._val.upper())
         return check_obj
     except AssertionError as e:
         raise CheckError('{} is camelcase'.format(check_obj._val)) from e
@@ -318,7 +335,8 @@ def matches(check_obj, regex):
         assert pattern.match(check_obj._val) is not None
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} does not match pattern: {}'.format(check_obj._val, regex)) from e
+        raise CheckError('{} does not match pattern: {}'.format(
+            check_obj._val, regex)) from e
 
 
 def not_matches(check_obj, regex):
@@ -328,4 +346,5 @@ def not_matches(check_obj, regex):
         assert not pattern.match(check_obj._val) is not None
         return check_obj
     except AssertionError as e:
-        raise CheckError('{} matches pattern: {}'.format(check_obj._val, regex)) from e
+        raise CheckError('{} matches pattern: {}'.format(
+            check_obj._val, regex)) from e

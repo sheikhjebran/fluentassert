@@ -23,17 +23,18 @@ class TestNumbersAssertions(unittest.TestCase):
 
         # test failure
         val = 'not-a-number'
-        self.assertTrue(all([not isinstance(val, kls) for kls in Check.NUMERIC_TYPES]))
+        self.assertTrue(all([not isinstance(val, kls)
+                        for kls in Check.NUMERIC_TYPES]))
         try:
             Check(val).is_number()
             self.fail()
         except CheckError:
             pass
 
-
     def test_is_not_number(self):
         val = 'not-a-number'
-        self.assertTrue(all([not isinstance(val, kls) for kls in Check.NUMERIC_TYPES]))
+        self.assertTrue(all([not isinstance(val, kls)
+                        for kls in Check.NUMERIC_TYPES]))
         res = Check(val).is_not_number()
         self.assertIsInstance(res, Check)
 
@@ -63,7 +64,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_integer(self):
         res = Check(123).is_integer()
         self.assertIsInstance(res, Check)
@@ -73,7 +73,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_not_integer(self):
         res = Check('test').is_not_integer()
@@ -85,7 +84,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_float(self):
         res = Check(123.9).is_float()
         self.assertIsInstance(res, Check)
@@ -96,7 +94,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_not_float(self):
         res = Check('test').is_not_float()
         self.assertIsInstance(res, Check)
@@ -106,7 +103,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_real(self):
         res = Check(123.9).is_real()
@@ -119,7 +115,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_not_real(self):
         val = complex(1.2, 3.4)
@@ -138,7 +133,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_complex(self):
         val = complex(1.2, 3.4)
         res = Check(val).is_complex()
@@ -148,7 +142,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_not_complex(self):
         res = Check('test').is_not_complex()
@@ -160,7 +153,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_positive(self):
         res = Check(2).is_positive()
@@ -176,7 +168,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_not_positive(self):
         res = Check(-1).is_not_positive()
         self.assertIsInstance(res, Check)
@@ -188,7 +179,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_negative(self):
         res = Check(-2).is_negative()
@@ -204,7 +194,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_not_negative(self):
         res = Check(1).is_not_negative()
         self.assertIsInstance(res, Check)
@@ -217,7 +206,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_zero(self):
         res = Check(0).is_zero()
         self.assertIsInstance(res, Check)
@@ -227,7 +215,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_not_zero(self):
         res = Check(1).is_not_zero()
         self.assertIsInstance(res, Check)
@@ -236,7 +223,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_at_least(self):
         res = Check(7).is_at_least(6.5)
@@ -249,7 +235,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_at_most(self):
         res = Check(6.5).is_at_most(7)
         self.assertIsInstance(res, Check)
@@ -261,7 +246,6 @@ class TestNumbersAssertions(unittest.TestCase):
         except CheckError:
             pass
 
-
     def test_is_between(self):
         res = Check(5.4).is_between(5, 6)
         self.assertIsInstance(res, Check)
@@ -270,7 +254,6 @@ class TestNumbersAssertions(unittest.TestCase):
             self.fail()
         except CheckError:
             pass
-
 
     def test_is_not_between(self):
         res = Check(5.4).is_not_between(1, 2)

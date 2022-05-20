@@ -10,8 +10,9 @@ from ..assertions_is.sequences import __IsSequences
 from ..assertions_is.strings import __IsStrings
 from ..assertions_is.types import __IsTypes
 from ..assertions_is.uuids import __IsUUIDs
+from ..assertions_is.lists import __IsLists
 
 
 class Is(__IsBool, __IsCollections, __IsDicts, __IsEmptiness, __IsGeo,
-         __IsNumbers, __IsSequences, __IsStrings, __IsTypes, __IsUUIDs):
+         __IsNumbers, __IsSequences, __IsStrings, __IsTypes, __IsUUIDs, __IsLists):
     pass
