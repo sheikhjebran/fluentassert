@@ -12,12 +12,10 @@ class __IsLists(IsBase):
         self.check.is_not_list()
         return self
 
-    @property
-    def list_contains(self, char: str) -> "Is":
+    def list_contains(self, char) -> "Is":
         self.check.is_in_list(char)
         return self
 
-    @property
-    def list_not_contains(self, char: str) -> "Is":
+    def list_not_contains(self, char) -> "Is":
         self.check.is_not_in_list(char)
         return self

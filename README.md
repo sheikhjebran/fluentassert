@@ -155,7 +155,10 @@ has_dimensionality(dimensionality)
 is_tuple()
 
 # Lists
-is_list()
+is_list
+not_list
+list_contains(char)
+list_not_contains(char)
 
 # Strings
 is_string()
