@@ -6,7 +6,7 @@ class __IsStrings(IsBase):
     def string(self) -> "Is":
         self.check.is_string()
         return self
-    
+
     @property
     def not_string(self) -> "Is":
         self.check.is_not_string()
@@ -139,14 +139,22 @@ class __IsStrings(IsBase):
         self.check.contains_char(char)
         return self
 
-    def same_as(self, char:str) -> "Is":
+    def contains_substring(self, char: str) -> "Is":
+        self.check.contains_substring(char)
+        return self
+
+    def dont_contains_substring(self, char: str) -> "Is":
+        self.check.dont_contains_substring(char)
+        return self
+
+    def same_as(self, char: str) -> "Is":
         self.check.same_as(char)
         return self
 
-    def not_same_as(self, char:str) -> "Is":
+    def not_same_as(self, char: str) -> "Is":
         self.check.not_same_as(char)
         return self
-        
+
     def not_contains_char(self, char: str) -> "Is":
         self.check.not_contains_char(char)
         return self

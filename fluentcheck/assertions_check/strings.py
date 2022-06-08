@@ -112,6 +112,28 @@ def contains_char(check_obj, _char):
                                                                _char)) from e
 
 
+def contains_substring(check_obj, __char):
+    check_obj.is_string()
+    __char.is_string()
+    try:
+        assert __char in check_obj._val
+        return check_obj
+    except AssertionError as e:
+        raise CheckError('{} is not present in : {}'.format(
+            _char, check_obj._val)) from e
+
+
+def dont_contains_substring(check_obj, __char):
+    check_obj.is_string()
+    __char.is_string()
+    try:
+        assert __char not in check_obj._val
+        return check_obj
+    except AssertionError as e:
+        raise CheckError('{} is not present in : {}'.format(
+            _char, check_obj._val)) from e
+
+
 def same_as(check_obj, __char):
     check_obj.is_string()
     try:
