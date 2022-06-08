@@ -114,7 +114,7 @@ def contains_char(check_obj, _char):
 
 def contains_substring(check_obj, __char):
     check_obj.is_string()
-    __char.is_string()
+    assert isinstance(__char, str)
     try:
         assert __char in check_obj._val
         return check_obj
@@ -125,7 +125,7 @@ def contains_substring(check_obj, __char):
 
 def dont_contains_substring(check_obj, __char):
     check_obj.is_string()
-    __char.is_string()
+    assert isinstance(__char, str)
     try:
         assert __char not in check_obj._val
         return check_obj
