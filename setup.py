@@ -17,7 +17,7 @@ def read(filename):
 
 setup(
     name='fluentassert',
-    version='0.0.6',
+    version='0.0.7',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -40,5 +40,5 @@ setup(
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Libraries"],
     keywords='check python fluent fluent-interface assertion-library assertions testing fluent-assertions fluentcheck',
-    test_suite='fluentcheck.tests'
+    test_suite='fluentassert.tests'
 )
