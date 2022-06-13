@@ -141,7 +141,7 @@ def same_as(check_obj, __char):
         return check_obj
     except AssertionError as e:
         raise CheckError('{} does not match : {}'.format(check_obj._val,
-                                                         _char)) from e
+                                                         __char)) from e
 
 
 def not_same_as(check_obj, __char):
@@ -151,7 +151,7 @@ def not_same_as(check_obj, __char):
         return check_obj
     except AssertionError as e:
         raise CheckError('{} is same as : {}'.format(check_obj._val,
-                                                     _char)) from e
+                                                     __char)) from e
 
 
 def not_contains_char(check_obj, _char):
