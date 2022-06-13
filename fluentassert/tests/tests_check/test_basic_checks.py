@@ -1,6 +1,6 @@
 import unittest
-from fluentcheck.classes import Check
-from fluentcheck.exceptions import CheckError
+from fluentassert.classes import Check
+from fluentassert.exceptions import CheckError
 
 
 class TestBasicChecks(unittest.TestCase):

@@ -1,7 +1,7 @@
 import unittest
 
-from fluentcheck import Is
-from fluentcheck.exceptions import CheckError
+from fluentassert import Is
+from fluentassert.exceptions import CheckError
 
 
 class TestIsListsAssertions(unittest.TestCase):

@@ -1,4 +1,4 @@
-from fluentcheck.assertions_is.base_is import IsBase
+from .base_is import IsBase
 
 
 class __IsNumbers(IsBase):

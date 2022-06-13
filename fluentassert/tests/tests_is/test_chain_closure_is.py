@@ -1,6 +1,6 @@
 import unittest
 
-from fluentcheck import Is
+from fluentassert import Is
 
 
 class TestIsChainClosure(unittest.TestCase):

@@ -1,8 +1,8 @@
 import unittest
 
-from fluentcheck import Is
-from fluentcheck.exceptions import CheckError
-from fluentcheck.tests.tests_check.test_booleans import BooleanByLengthObject, BooleanObject
+from fluentassert import Is
+from fluentassert.exceptions import CheckError
+from fluentassert.tests.tests_check.test_booleans import BooleanByLengthObject, BooleanObject
 
 
 # noinspection PyStatementEffect
